@@ -1,0 +1,140 @@
+package Cdac.Oops.inheritance;
+
+
+class BankAccount{
+	int accountNumber;
+	double balance;
+	
+	
+	BankAccount(int accountNumber,double balance){
+		this.accountNumber=accountNumber;
+		this.balance=balance;
+	}
+	
+	void deposit(double amount) {
+		balance = amount + balance;
+		System.out.println("Amount + balance :" + balance);
+	}
+}
+
+class SavingsAccount extends BankAccount{
+	double interestRate;
+	
+	SavingsAccount(int accountNumber,double balance,double interestRate) {
+		super(accountNumber,balance);
+		this.interestRate=interestRate;
+	}
+	
+	void calculateInterest() {
+		double interest=balance * interestRate/100;
+		System.out.println("Interest Rate is :" + interest);
+	}
+}
+
+
+public class BankAccountSystem {
+	public static void main(String[] arsg) {
+	
+	SavingsAccount sa =new SavingsAccount(101,5000,5.0);
+	sa.deposit(2000);
+	sa.calculateInterest();
+	
+	
+	
+
+}
+}
+
+____-----------------------------------------------------------------------------
+
+
+package Cdac.Oops.inheritance;
+
+
+class Vehicle{
+	String brand;
+	int fuel;
+	
+	Vehicle(String brand,int fuel){
+		this.brand=brand;
+		this.fuel=fuel;
+	}
+	
+	void refuel(int liters) {
+		fuel=fuel+liters;
+		
+		System.out.println("total Fuel is : " + fuel);
+	}
+	
+}
+
+class Car extends Vehicle{
+	int mileage;
+	
+	Car(String brand,int fuel,int mileage){
+		super(brand,fuel);
+		this.mileage=mileage;
+	}
+	
+	void calculateTravelDistance() {
+		double TotalDistance=fuel* mileage;
+		System.out.println("total Distance is : " + TotalDistance);
+	}
+}
+
+
+
+
+
+public class VehicleSystem {
+	
+	public static void main(String[] arsg) {
+    Car c1=new Car("Toyota", 10, 15);
+    c1.refuel(20);
+    c1.calculateTravelDistance();
+}
+}
+
+
+-------------------------------------------------------------------------
+
+package Cdac.Oops.inheritance;
+
+class Employee{
+	String name ;
+    double salary;
+    
+    
+    Employee(String name,double salary){
+    	this.name= name ;
+    	this.salary=salary;
+    }
+    
+    void displayDetails() {
+    	System.out.println("Name :" +name);
+    	System.out.println("salary :" + salary); 
+    }
+}
+ class Manager extends Employee{
+	 int teamSize;
+	 
+	 Manager(String name,double salary,int teamSize){
+      	 super(name , salary);
+		 this.teamSize=teamSize;
+	 }
+	 
+	 void calculateBonus() {
+		 double bonus=teamSize*1000;
+		 System.out.println("total bonus is " + bonus);
+	 }
+ }
+
+public class EmployeeManagement {
+     public static void main(String [] args) {
+    	 Manager m=new Manager("Deepanshu", 50000, 8);
+    	 m.displayDetails();
+    	 m.calculateBonus();
+     }
+}
+
+
